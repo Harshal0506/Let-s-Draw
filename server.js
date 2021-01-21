@@ -7,6 +7,8 @@ const io=socketio(server);
 app.use('/',express.static(__dirname+'/public'));
 io.on('connection',newConnection);
 
+const PORT=process.env.PORT || 3000;
+
 
 function newConnection(socket){
     console.log('new connection'+socket.id);
@@ -22,6 +24,6 @@ function newConnection(socket){
     }
 }
 
-server.listen(3000,()=>{
+server.listen(PORT,()=>{
     console.log("Server started on localhost 3000");
 })
